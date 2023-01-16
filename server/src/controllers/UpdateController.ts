@@ -1,14 +1,12 @@
 import prismaClient from "../database/prismaClient";
 import {Request, Response} from 'express'
- 
-
 
 export class UpdateEmployee {
   async handle(req: Request, res: Response){
 
     const {id,name,cpf,email,roleId} = req.body.data
 
-    console.log(id,name,cpf,email,roleId)
+     console.log(id,name,cpf,email,roleId)
     await prismaClient.employee.update({
       where: { id:Number(id) },
       data: {
@@ -62,8 +60,6 @@ export class UpdatePass {
     }else{
       return res.status(201).json("Senha Antiga Incorreta")
     }
-    
-   
   }
 }
 

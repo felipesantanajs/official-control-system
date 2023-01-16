@@ -55,7 +55,7 @@ export function Registration(){
                         <FormInput label="CPF" type="text" name="cpf" register={register} error={errors.cpf}/>
                         <FormInput label="Matricula" type="number" name="enrollment" register={register} error={errors.enrollment}/>
                         <FormInput label="Email" type="email" name="email" register={register} error={errors.email} />
-                        <FormSelectRoles name="roleId" register={register}/>
+                        <FormSelectRoles name="roleId" register={register} error={errors.roleId}/>
                         <button type="submit" className="block h-10 w-[95%] mt-5 bg-pink-900 text-white rounded" > Cadastrar </button>
                     </form>
                 </div>

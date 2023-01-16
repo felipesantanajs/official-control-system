@@ -23,6 +23,4 @@ routes.post('/update-employee',updateEmployee.handle)
 routes.post('/update-status',updateStatusEmployee.handle)
 routes.post('/update-employee-pass',updatePass.handle)
 
-
-
 export default routes

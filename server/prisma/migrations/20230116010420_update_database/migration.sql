@@ -31,4 +31,4 @@ CREATE UNIQUE INDEX "Employee_email_key" ON "Employee"("email");
 CREATE UNIQUE INDEX "Employee_roleId_key" ON "Employee"("roleId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Role_name_key" ON "Role"("name");
+CREATE UNIQUE INDEX "Role_id_key" ON "Role"("id");

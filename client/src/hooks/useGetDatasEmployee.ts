@@ -9,8 +9,8 @@ type valueProps = {
   name: string;
   cpf: string
   email:string;
-  role?: valuesRoleProps | undefined
-  roleId:number ;
+  role?: valuesRoleProps;
+  roleId: number;
   enrrolment?:string;
   hiring_date?:string;
   status?: boolean;
@@ -24,7 +24,7 @@ type GetDatasEmployeeProps = {
 const useGetDatasEmployee = create<GetDatasEmployeeProps>(
   (set)=> ({
     arrayDatas:[],
-    lineTableClicked: {id:0, name:"", email:"", cpf: "", roleId:0 },
+    lineTableClicked: {id:0, name:"", email:"", cpf: "", roleId:0, role:{id:1, name: ""} },
     setDatas: (datas) => {
       set((state) => ({
         arrayDatas: datas

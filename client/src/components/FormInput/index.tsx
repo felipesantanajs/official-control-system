@@ -1,7 +1,4 @@
-import ControlPointIcon from '@mui/icons-material/ControlPoint';
-import { IconButton } from '@mui/material';
-import useControlModal from '../../hooks/useControlModal';
-import { useState } from 'react';
+
 
 interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
@@ -10,7 +7,6 @@ interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     register?:any;
     error?:any;
 }
-
 
 export const FormInput = ({name,type,label,error,register, ...rest}:FormInputProps) => {
 

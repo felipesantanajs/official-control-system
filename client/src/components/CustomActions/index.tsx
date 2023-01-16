@@ -38,7 +38,7 @@ export function CustomActions({params}:CustomActionsProps){
     
     const handleOpenModalEditEmployee = ()=>{
         setValueLineClicked(params.row);
-        setTypeModal("createEmployee");
+        setTypeModal("updateEmployee");
         activeModal();
     }
     const handleOpenModalEditPass = ()=>{
