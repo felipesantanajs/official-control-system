@@ -1,19 +1,21 @@
 import prismaClient from "../database/prismaClient";
 import {Request, Response} from 'express'
+import md5 from 'md5'
 
 export class UpdateEmployee {
   async handle(req: Request, res: Response){
 
     const {id,name,cpf,email,roleId} = req.body.data
 
-     console.log(id,name,cpf,email,roleId)
+    
+    console.log(id,name,cpf,email,roleId)
     await prismaClient.employee.update({
-      where: { id:Number(id) },
+      where: { id:id },
       data: {
         name:name,
         cpf:cpf,
         email:email,
-        roleId:Number(roleId)
+        roleId:roleId
       },
     })
     const recoveryDatasEmployees = await prismaClient.employee.findMany({
@@ -42,17 +44,21 @@ export class UpdatePass {
   async handle(req: Request, res: Response){
 
     const {id, old_pass, confirmation_pass} = req.body.data
+
+    const oldPassMd5 = md5(old_pass)
+    const newPassMd5 = md5(confirmation_pass)
+
     const comparePassInputed = await prismaClient.employee.findMany({
       where:{
         id:Number(id),
-        pass: old_pass
+        pass: oldPassMd5
       }
     })
     if(comparePassInputed.length > 0){
       await prismaClient.employee.update({
         where: { id:Number(id) },
         data: {
-          pass:String(confirmation_pass)
+          pass:String(newPassMd5)
         },
      })
       return res.status(201).json("Atualizado com sucesso")

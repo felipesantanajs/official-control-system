@@ -11,6 +11,10 @@ export class CreateEmployee{
         
         const md5NewPass = md5(confirmation_pass);
 
+        if(roleId === ""){
+            
+            return res.status(201).json("Precisa criar um cargo")
+        }
         const verificationEmployee = await prismaClient.employee.findMany({
             where:{
                 cpf:cpf,

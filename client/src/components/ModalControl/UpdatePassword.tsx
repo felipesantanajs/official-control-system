@@ -51,7 +51,7 @@ export function UpdatePassword(){
           <FormInput label="Senha antiga" type="password" name="old_pass" register={register} error={errors.old_pass}/>
           <FormInput label="Senha" type="password" name="pass" register={register} error={errors.pass}/>
           <FormInput label="Confirmação de Senha"  type="password" name="confirmation_pass" register={register} error={errors.confirmation_pass}/>
-          <button type="submit" className="block h-10 w-[95%] mt-5 bg-pink-900 text-white rounded" > Atualizar </button>
+          <button type="submit" className="block h-10 w-[95%] mt-5 bg-pink-900 text-white rounded duration-100 hover:brightness-75" > Atualizar </button>
         </form>
       </div>
   </div>

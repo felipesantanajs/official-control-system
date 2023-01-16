@@ -5,14 +5,14 @@ import useControlModal from "../../hooks/useControlModal";
 
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../../service/api";
+import useGetDatasEmployee from "../../hooks/useGetDatasEmployee";
 
 interface FormSelectRolesProps{
   name:string;
   register:any;
-  error:any
-  valueSetted?:number;
+  error:any;
 }
-export function FormSelectRoles({ name, register,error}:FormSelectRolesProps){
+export function FormSelectRoles({ name, register,error, ...rest}:FormSelectRolesProps){
 
   const {data: dataRoles, isLoading, isError} = useQuery(['search-roles'], async () =>{
     const response: any = await api.get("/search-roles")
@@ -28,17 +28,17 @@ export function FormSelectRoles({ name, register,error}:FormSelectRolesProps){
     setTypeModal("createRole")
     activeModal()
   }
-
   const optionSelect = dataRoles?.map((res:any) =>{
     return (
         <option key={res.id} value={res.id}>{res.name}</option>
     )
 })
   return (
-    <div className="flex flex-col w-[40%]">
+    <div className="flex flex-col w-[37%] ">
       <label className="flex flex-col" htmlFor="role"> Cargo:
-        <div className="flex flex-col items-center justify-between">
-          <select  className="w-52  h-6 rounded border border-gray-700" {...register(name)} >
+        <div className="flex items-center justify-between">
+         
+          <select  className="h-6 rounded border border-gray-700" {...register(name)} {...rest} >
               {optionSelect}
           </select>
             {error && (

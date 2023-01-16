@@ -37,12 +37,12 @@ export function CustomActions({params}:CustomActionsProps){
     }
     
     const handleOpenModalEditEmployee = ()=>{
-        setValueLineClicked(params.row);
+        setValueLineClicked( params.row);
         setTypeModal("updateEmployee");
         activeModal();
     }
-    const handleOpenModalEditPass = ()=>{
-        setValueLineClicked(params.row);
+    const handleOpenModalEditPass =  ()=>{
+        setValueLineClicked( params.row);
         setTypeModal("editPass");
         activeModal();
     }

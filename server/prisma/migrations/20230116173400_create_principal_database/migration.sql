@@ -26,9 +26,3 @@ CREATE UNIQUE INDEX "Employee_cpf_key" ON "Employee"("cpf");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Employee_email_key" ON "Employee"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Employee_roleId_key" ON "Employee"("roleId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Role_id_key" ON "Role"("id");

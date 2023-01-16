@@ -24,7 +24,7 @@ type GetDatasEmployeeProps = {
 const useGetDatasEmployee = create<GetDatasEmployeeProps>(
   (set)=> ({
     arrayDatas:[],
-    lineTableClicked: {id:0, name:"", email:"", cpf: "", roleId:0, role:{id:1, name: ""} },
+    lineTableClicked: {id:0, name:"", email:"", cpf: "", roleId:1, role:{id:0, name: ""} },
     setDatas: (datas) => {
       set((state) => ({
         arrayDatas: datas

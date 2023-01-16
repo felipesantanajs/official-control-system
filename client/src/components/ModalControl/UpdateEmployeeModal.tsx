@@ -1,5 +1,5 @@
 
-import {useForm} from 'react-hook-form'
+import {useForm, Controller} from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -10,12 +10,15 @@ import useGetDatasEmployee from '../../hooks/useGetDatasEmployee';
 import { useEffect } from 'react';
 type ValidationFormSchemaType = z.infer<typeof validationFormSchema>
 
+const numberValid = z.coerce.number().min(0)
+
 const validationFormSchema = z.object({
   id: z.number(),
   name: z.string().min(3, {message: 'O nome precisa ter no minimo 3 letras'}),
-  cpf: z.string(),
+  cpf: z.string().min(10, {message: 'o cpf precisa ter pelo menos 10 numeros'}),
   email: z.string().email({ message: 'Deve ser um email' }),
-  roleId: z.string().transform(Number),
+  roleId: z.coerce.number()
+
 })
 
 export function UpdateEmployeeModal() {
@@ -23,7 +26,7 @@ export function UpdateEmployeeModal() {
   const setDatas = useGetDatasEmployee((state) => state.setDatas)
   const lineClickedTable = useGetDatasEmployee((state) => state.lineTableClicked )
 
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm<ValidationFormSchemaType>({
+  const {control, register, handleSubmit, formState: { errors }, setValue } = useForm<ValidationFormSchemaType>({
     resolver: zodResolver(validationFormSchema)
   })
 
@@ -35,11 +38,11 @@ export function UpdateEmployeeModal() {
       setValue("name",lineClickedTable.name);
       setValue("cpf",lineClickedTable.cpf);
       setValue("email",lineClickedTable.email);
-      setValue("roleId",lineClickedTable.roleId);
+      setValue("roleId",Number(lineClickedTable.roleId));
     }
   }, [lineClickedTable]);
-
   async function handleSubmitUpadateEmployee(data: any) {
+    
     await api.post("/update-employee", { data })
       .then(response => {
         setDatas(response.data.values)
@@ -50,7 +53,7 @@ export function UpdateEmployeeModal() {
     <div className="flex bg-white border  opacity-90 w-[50rem] h-[25rem] rounded-3xl ">
 
       <div className="flex items-center justify-center w-full ">
-        <div className="flex flex-col items-center justify-center p-5 h-full w-[40rem]  ">
+        <div className="flex flex-col items-center justify-center p-5 h-full w-[45rem]  ">
           <h1 className="text-center text-lg">Atualizar Funcionário</h1>
           <form className="flex flex-wrap gap-5 items-center justify-between h-full p-5 border border-r-gray-300" onSubmit={handleSubmit(handleSubmitUpadateEmployee)} >
 

@@ -8,8 +8,6 @@ import { ModalControl } from "../../components/ModalControl";
 import useGetDatasEmployee from "../../hooks/useGetDatasEmployee";
 import useControlModal from "../../hooks/useControlModal";
 
-
-
 export function Home() {
     const getDatas = useGetDatasEmployee((state) => state.arrayDatas)
     const setDatas = useGetDatasEmployee((state) => state.setDatas)
@@ -64,7 +62,7 @@ export function Home() {
                     )}
                 <Link to="/register" >
                     <button 
-                        className="bg-pink-900 text-white w-40 h-10 rounded-lg float-right mt-4" 
+                        className="bg-pink-900 text-white w-40 h-10 rounded-lg float-right mt-4 duration-100 hover:brightness-75" 
                         onClick={handleChangePage}>Novo Funcionário
                     </button>
                 </Link>
