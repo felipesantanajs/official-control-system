@@ -9,10 +9,7 @@ interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const FormInput = ({name,type,label,error,register, ...rest}:FormInputProps) => {
-
-
     return(
-    
         <div className="flex flex-col w-[14rem] ">
             {name === "id" ? (
                 <input 
