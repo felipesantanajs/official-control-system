@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">Official Control Systems</h1>
 
 <p align="center">
@@ -49,3 +50,10 @@ $ Node - 18.12.0
 $ NPM - 8.19.2
 
 ```
+=======
+# Official Control System
+Project created by ReactJS - Vite - Typescript - TailwindCSS - NodeJS - Express - Prisma - SQlite 
+
+- Employee registration and update system
+
+>>>>>>> 18c80bd041965ea512f03c6dc9f0dae64098dab4
